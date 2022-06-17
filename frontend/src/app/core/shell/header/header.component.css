@@ -1,0 +1,41 @@
+header {
+  background-image: url("../../../../assets/imagenes/portada.jpg");
+  background-size: cover;
+
+
+}
+
+#enlaceHome{
+  color: rgb(248, 224, 4);
+}
+
+h1 {
+  color: rgb(248, 224, 4);
+  font-size: calc(20rem +1vw);
+  font-weight: bolder;
+  font-style:oblique;
+  justify-content: center;
+  text-align: center;
+  padding-top: .4rem;
+  }
+
+.nav-item{
+  border-style: double;
+  border-color: black;
+  background-color: green;
+}
+.nav-link {
+  color: yellow;
+  font-weight: bolder;
+}
+
+.nav-link:hover{
+  background-color: red;
+}
+
+
+
+
+
+
+

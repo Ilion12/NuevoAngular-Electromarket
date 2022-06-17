@@ -1,0 +1,117 @@
+<body class="d-flex flex-column min-vh-100">
+  <main>
+    <div class="container mt-auto">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h2>Añadir Producto</h2>
+          <form class="was-validated">
+            <div class="mb-3 mt-3">
+              <label class="form-label">Tipo de Producto:</label>
+              <select [(ngModel)]="formulario" [ngModelOptions]="{standalone: true}" class="form-select" aria-label="Default select example" required>
+                <option selected></option>
+                <option value="1">Lavadora</option>
+                <option value="2">Televisor</option>
+              </select>
+            </div>
+
+
+            <div class="mb-3" *ngIf="formulario == 1" >
+              <label class="form-label">Marca:</label>
+              <input type="text" class="form-control" placeholder="p.e., LG" name="marca" minlength="3"
+                maxlength="100" [(ngModel)]="lavadora.marca" required>
+            </div>
+            <div class="mb-3" *ngIf="formulario == 1">
+              <label class="form-label">Modelo:</label>
+              <input type="text" class="form-control" placeholder="p.e., ultraWash" name="modelo" minlength="3"
+                maxlength="30" [(ngModel)]="lavadora.modelo" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 1">
+              <label class="form-label">C.E</label>
+              <input type="text" class="form-control" placeholder="" name="califciacionenergetica" minlength="1"
+                maxlength="1" [(ngModel)]="lavadora.calificacionEnergetica" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 1">
+              <label class="form-label">Capacidad de Carga:</label>
+              <input type="number" class="form-control" placeholder="" name="capacidadcarga" minlength="1"
+                maxlength="2" min="4" [(ngModel)]="lavadora.capacidadCarga" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 1">
+              <label class="form-label">Precio:</label>
+              <input type="text" class="form-control" placeholder="" name="precio" min="1"
+                [(ngModel)]="lavadora.precio" required>
+            </div>
+
+            <div class="mb-3" *ngIf="formulario == 2">
+              <label class="form-label">Marca:</label>
+              <input type="text" class="form-control" placeholder="p.e., LG" name="marcaTelevisor" minlength="3"
+                maxlength="20" [(ngModel)]="televisor.marca" required>
+            </div>
+            <div class="mb-3" *ngIf="formulario == 2">
+              <label class="form-label">Modelo:</label>
+              <input type="text" class="form-control" placeholder="p.e., vision2000" name="modeloTelevisor"
+                minlength="3" maxlength="30" [(ngModel)]="televisor.modelo" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 2">
+              <label class="form-label">C.E</label>
+              <input type="text" class="form-control" placeholder="" name="califciacionenergeticaLavadora" minlength="1"
+                maxlength="1" [(ngModel)]="televisor.calificacionEnergetica" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 2">
+              <label class="form-label">Tamaño de la Pantalla:</label>
+              <input type="number" class="form-control" placeholder="" name="numeroPulgadasTelevisor" min="17"
+                minlength="2" maxlength="3" max="100" [(ngModel)]="televisor.numeroPulgadas" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 2" >
+              <label class="form-label">Precio:</label>
+              <input type="text" class="form-control" placeholder="" name="precioTelevisor" min="1"
+                [(ngModel)]="televisor.precio" required>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-2" *ngIf="formulario == 1 ">
+          <button id="guardarLavadora" type="submit" class="btn btn-primary" (click)="onAddLavadora()">Guardar</button>
+        </div>
+        <div class="col-2" *ngIf="formulario == 2 ">
+          <button id="guardarTelevisor" type="submit" class="btn btn-primary"
+            (click)="onAddTelevisor()">Guardar</button>
+        </div>
+        <div class="col-2" *ngIf="formulario == 1 || formulario == 2">
+          <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <pre>{{ lavadora | json }}</pre>
+    <br>
+    <pre>{{ televisor | json }}</pre>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </main>
+</body>

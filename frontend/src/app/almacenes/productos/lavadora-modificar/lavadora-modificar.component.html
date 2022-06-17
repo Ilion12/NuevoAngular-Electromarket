@@ -1,0 +1,64 @@
+<body>
+  <main>
+
+    <section id="datosLavadora" *ngIf="[lavadora]">
+      <div class="form-row py-2">
+        <label>Marca<sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="lavadora.marca" placeholder="Por ejemplo, LG" name="prod"
+          required maxlength="15" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">Ok</div>
+      </div>
+      <div class="form-row py-2">
+        <label>Modelo<sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="lavadora.modelo" placeholder="P. e., SartmWash"
+          name="prod2" required minlength="9" maxlength="9" #prod2="ngModel" [ngClass]="{
+        'is-invalid': prod2.invalid && (prod2.dirty || prod2.touched),
+        'is-valid': !prod2.invalid
+      }" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">ok</div>
+      </div>
+      <div class="form-row py-2">
+        <label>Calificación Energética<sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" placeholder="" name="califciacionenergetica" minlength="1" maxlength="1"
+          [(ngModel)]="lavadora.calificacionEnergetica" required>
+      </div>
+      <div class="form-row py-2">
+        <label>Capacidad de carga<sup class="text-danger">*</sup></label>
+        <input type="number" class="form-control" [(ngModel)]="lavadora.capacidadCarga" placeholder="P.e., 6 kg"
+          name="prod21" required min="1" max="1" #prod21="ngModel" [ngClass]="{
+        'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+        'is-valid': ! prod21.invalid
+      }" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">Ok</div>
+      </div>
+
+      <div class="form-row py-2">
+        <label>Precio<sup class="text-danger">*</sup></label>
+        <input type="number" class="form-control" [(ngModel)]="lavadora.precio" placeholder="" name="prod21" required
+          min="1" max="" #prod21="ngModel" [ngClass]="{
+        'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+        'is-valid': ! prod21.invalid
+      }" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">Ok</div>
+      </div>
+      <div class="row justify-content-center">
+
+        <div class="col-2">
+          <button id="guardar" type="submit" class="btn btn-primary" (click)="onModificarLavadora()"
+            routerLink="/almacenes">Guardar</button>
+        </div>
+
+        <div class="col-2">
+          <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+        </div>
+
+      </div>
+      <br>
+      <pre>{{ lavadora | json }}</pre>
+    </section>
+  </main>
+</body>

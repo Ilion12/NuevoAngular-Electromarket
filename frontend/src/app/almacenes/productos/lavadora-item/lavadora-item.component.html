@@ -1,0 +1,23 @@
+<main>
+  <div class="container mt-auto">
+  <div class="row mb-2 justify-content-center">
+    <hr class='w-100'>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <li class="list-group-item">
+      Lavadora &nbsp;&nbsp;  {{lavadora.marca}}, {{lavadora.modelo}}, {{lavadora.calificacionEnergetica}}, {{lavadora.capacidadCarga}} Kg,
+        {{lavadora.precio}} €
+      </li>
+    </div>
+    <div class="col-sm-4">
+     <a>
+        <fa-icon [icon]="trash" class="fa-2x" (click)="borrarLavadora()"></fa-icon>
+        &nbsp;
+      </a>
+      <a>
+       <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarLavadora()"></fa-icon>&nbsp;
+      </a>
+    </div>
+    </div>
+  </div>
+  </main>

@@ -1,0 +1,19 @@
+<body class="d-flex flex-column min-vh-100">
+
+  <main>
+    <div class="container mt-auto">
+      <div class="row">
+        <h2>ALMACENES</h2>
+      </div>
+      <div *ngFor="let almacen of almacenes" id="general">
+        <app-almacen-item
+        [almacen]="almacen"
+        (almacenEditar)="onAlmacenEditar($event)"
+        (almacenEliminar)="onAlmacenEliminar($event)"
+        (almacenConsultar)="onAlmacenConsultar($event)">
+        </app-almacen-item>
+        <pre>{{almacen|json}}</pre>
+      </div>
+    </div>
+  </main>
+</body>

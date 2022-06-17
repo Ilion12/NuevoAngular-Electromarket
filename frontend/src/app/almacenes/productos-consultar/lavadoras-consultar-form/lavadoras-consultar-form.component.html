@@ -1,0 +1,42 @@
+<body class="d-flex flex-column min-vh-100">
+  <main>
+      <div class="container mt-auto">
+          <div class="row justify-content-center">
+              <div class="col-8">
+                  <h2>{{lavadora.marca}}</h2>
+                  <form class="was-validated">
+
+                      <div class="mb-3 mt-3">
+                          <label class="form-label">Tipo de Producto:</label>
+                          <input type="text" class="form-control" placeholder="lavadora"
+                              name="marcaLavadora" minlength="3" maxlength="30" readonly>
+                      </div>
+
+                      <div class="mb-3">
+                          <label class="form-label">Marca:</label>
+                          <input type="text" class="form-control"
+                              name="marcaLavadora"
+                              [(ngModel)]="lavadora.marca" readonly>
+                      </div>
+
+                      <div class="mb-3">
+                          <label class="form-label">Modelo:</label>
+                          <textarea type="text" class="form-control" rows="6" name="descripcion"
+                              [(ngModel)]="lavadora.modelo" readonly></textarea>
+                      </div>
+                      <div><label class="form-label">Precio:</label></div>
+                      <div class="mb-3 input-group">
+                          <input type="text" class="form-control"
+                              [(ngModel)]="lavadora.precio" readonly>
+                          <span class="input-group-text">€</span>
+                      </div>
+
+
+
+                  </form>
+              </div>
+          </div>
+      </div>
+      <br>         <pre>{{ lavadora | json }}</pre>
+  </main>
+</body>

@@ -1,0 +1,20 @@
+<main>
+  <div class="container mt-auto">
+
+    <div *ngFor="let lavadora of lavadoras">
+      <app-lavadoras-consultar [lavadora]="lavadora" (lavadoraConsultar)="onLavadoraConsultar($event)">
+      </app-lavadoras-consultar>
+
+      <pre>{{ lavadora | json }}</pre>
+
+    </div>
+
+    <div *ngFor="let televisor of televisores">
+      <app-televisores-consultar [televisor]="televisor" (televisorConsultar)="onTelevisorConsultar($event)">
+      </app-televisores-consultar>
+
+      <pre>{{ televisor | json }}</pre>
+
+    </div>
+  </div>
+</main>
