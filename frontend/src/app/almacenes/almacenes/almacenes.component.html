@@ -4,7 +4,7 @@
       <div class="row">
         <h2>ALMACENES</h2>
       </div>
-      <div *ngFor="let almacen of almacenes" id="general">
+      <div *ngFor="let almacen of almacenes" id="cadaAlmacen">
         <app-almacen-item
         [almacen]="almacen"
         (almacenEditar)="onAlmacenEditar($event)"

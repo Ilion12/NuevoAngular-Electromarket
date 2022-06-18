@@ -40,13 +40,13 @@ export class ProductoService {
 
     let lavadoraNueva: LavadoraImpl = new LavadoraImpl();
 
-    lavadoraNueva.almacen=lavadoraApi._links.almacen.href;
+    // lavadoraNueva.almacen=lavadoraApi._links.almacen.href;
     lavadoraNueva.calificacionEnergetica=lavadoraApi.calificacionEnergetica;
     lavadoraNueva.capacidadCarga= lavadoraApi.capacidadCarga;
     lavadoraNueva.marca= lavadoraApi.marca;
     lavadoraNueva.modelo= lavadoraApi.modelo;
     lavadoraNueva.precio= lavadoraApi.precio;
-    lavadoraNueva.urlProducto=lavadoraApi._links.self.href;
+    // lavadoraNueva.urlProducto=lavadoraApi._links.self.href;
     lavadoraNueva.idProducto=this.getId(lavadoraApi._links.lavadora.href);
     return lavadoraNueva;
   }
@@ -90,7 +90,7 @@ export class ProductoService {
   }
 //patch
   updateLavadora(lavadora: LavadoraImpl){
-    return this.http.put<any>(`${this.urlEndPointLav}/${lavadora.idProducto}`, lavadora).pipe(
+    return this.http.patch<any>(`${this.urlEndPointLav}/${lavadora.idProducto}`, lavadora).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -125,9 +125,9 @@ export class ProductoService {
 
     let televisorNuevo = new TelevisorImpl();
 
-    televisorNuevo.almacen=televisorApi._links.almacen.href;
+    // televisorNuevo.almacen=televisorApi._links.almacen.href;
     televisorNuevo.calificacionEnergetica= televisorApi.calificacionEnergetica;
-    televisorNuevo.urlProducto=televisorApi._links.self.href;
+    // televisorNuevo.urlProducto=televisorApi._links.self.href;
     televisorNuevo.marca= televisorApi.marca;
     televisorNuevo.modelo= televisorApi.modelo;
     televisorNuevo.precio= televisorApi.precio;
@@ -176,7 +176,7 @@ export class ProductoService {
   }
 //patch televisor
   updateTelevisor(televisor: TelevisorImpl){
-    return this.http.put<any>(`${this.urlEndPointTel}/${televisor.idProducto}`, televisor).pipe(
+    return this.http.patch<any>(`${this.urlEndPointTel}/${televisor.idProducto}`, televisor).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -202,7 +202,20 @@ export class ProductoService {
       })
     );
   }
-
+getMetodoPersonalizado(marca:string, numeroPulgadas:number): Observable<any>{
+  return this.http.get<any>(`${this.urlEndPointTel}
+  /search/buscar-productos?marca=${marca}&numeroPulgadas=${numeroPulgadas}`).pipe(
+    catchError((e) => {
+      if (e.status === 400) {
+        return throwError(() => new Error(e));
+      }
+      if (e.error.mensaje) {
+        console.error(e.error.mensaje);
+      }
+      return throwError(() => new Error(e));
+    })
+  );
+}
 
 
   // getProductosPagina(pagina: number): Observable<any> {

@@ -3,7 +3,7 @@ import { Electrodomestico } from "./electrodomestico";
 export class ElectrodomesticoImpl implements Electrodomestico{
 
   almacen!: string;
-  tipoProducto: string = '';
+  // tipoProducto: string = '';
   marca: string = '';
   modelo: string = '';
   calificacionEnergetica: string = '';
