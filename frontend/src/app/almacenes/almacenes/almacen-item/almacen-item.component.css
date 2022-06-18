@@ -1,0 +1,9 @@
+li:hover{
+  background-color: blue;
+}
+
+
+li{
+  background-color: rgb(15, 131, 102);
+color: yellow;
+}

@@ -10,7 +10,7 @@ import { LavadoraImpl } from '../../models/lavadora-impl';
 export class LavadorasConsultarComponent implements OnInit {
 
   lupa = faMagnifyingGlass;
-  fpencil = faPencil;
+  pencil = faPencil;
   trashC = faTrashCan;
 
   @Input() lavadora: LavadoraImpl = new LavadoraImpl();

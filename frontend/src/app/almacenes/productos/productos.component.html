@@ -3,25 +3,22 @@
       <br>
       <h3>Productos</h3>
 
-      <div *ngFor="let lavadora of lavadoras">
+      <div *ngFor="let lavadora of lavadoras" id="lavadoras">
           <app-lavadora-item
               [lavadora]="lavadora"
               (lavadoraEliminar)="onLavadoraEliminar($event)"
               (lavadoraEditar)="onLavadoraEditar($event)">
           </app-lavadora-item>
 
-          <pre>{{ lavadora| json }}</pre>
 
       </div>
 
-      <div *ngFor="let televisor of televisores">
+      <div *ngFor="let televisor of televisores" id="televisores">
           <app-televisor-item
               [televisor]="televisor"
               (televisorEliminar)="onTelevisorEliminar($event)"
               (televisorEditar)="onTelevisorEditar($event)">
           </app-televisor-item>
-
-          <pre>{{ televisor | json }}</pre>
 
       </div>
       <br>

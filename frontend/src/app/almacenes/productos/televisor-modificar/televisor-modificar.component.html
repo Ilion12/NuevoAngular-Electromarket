@@ -21,20 +21,11 @@
   </div>
     <div class="form-row py-2">
     <label>Calificación Energética<sup class="text-danger">*</sup></label>
-    <select name="selectorFormulario" id="selectorCalificaciónEnergética" class="form-select" aria-label="Default select example"
-    [(ngModel)]="televisor.calificacionEnergetica" placeholder="">
-      <option  value="A"></option>
-      <option  value="B"></option>
-      <option  value="Cº"></option>
-      <option  value="D"></option>
-      <option  value="E"></option>
-      <option  value="F"></option>
-      <option  value="G"></option>
-      <option  value="H"></option>
-    </select>
+    <input type="text" class="form-control" placeholder="" name="califciacionenergetica" minlength="1" maxlength="1"
+          [(ngModel)]="televisor.calificacionEnergetica" required>
   </div>
   <div class="form-row py-2">
-    <label>Capacidad de carga<sup class="text-danger">*</sup></label>
+    <label>Tamaño de la Pantalla<sup class="text-danger">*</sup></label>
     <input type="number" class="form-control" [(ngModel)]="televisor.numeroPulgadas" placeholder='P.e., 49" ' name="prod21"
       required min="1" max="1" #prod21="ngModel" [ngClass]="{
         'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
@@ -43,4 +34,28 @@
     <div class="invalid-feedback">Por favor, rellene este campo.</div>
     <div class="valid-feedback">Ok</div>
   </div>
+  <div class="form-row py-2">
+    <label>Precio<sup class="text-danger">*</sup></label>
+    <input type="number" class="form-control" [(ngModel)]="televisor.precio" placeholder="" name="precio" required
+      min="1" max="" #prod21="ngModel" [ngClass]="{
+    'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+    'is-valid': ! prod21.invalid
+  }" />
+    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+    <div class="valid-feedback">Ok</div>
+  </div>
+  <div class="row justify-content-center">
+
+    <div class="col-2">
+      <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarTelevisor()"
+        routerLink="/almacenes">Guardar</button>
+    </div>
+
+    <div class="col-2">
+      <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+    </div>
+
+  </div>
+  <br>
+</section>
 

@@ -1,6 +1,5 @@
 .container-fluid{
   text-align: center;
-  margin-top: 150px;
 }
 
 
@@ -27,3 +26,6 @@ a {
   margin-top: 2rem;
 }
 
+main{
+  margin-top: 100%;
+}

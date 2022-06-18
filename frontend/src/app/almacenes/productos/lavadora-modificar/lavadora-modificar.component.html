@@ -37,7 +37,7 @@
 
       <div class="form-row py-2">
         <label>Precio<sup class="text-danger">*</sup></label>
-        <input type="number" class="form-control" [(ngModel)]="lavadora.precio" placeholder="" name="prod21" required
+        <input type="number" class="form-control" [(ngModel)]="lavadora.precio" placeholder="" name="precio" required
           min="1" max="" #prod21="ngModel" [ngClass]="{
         'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
         'is-valid': ! prod21.invalid

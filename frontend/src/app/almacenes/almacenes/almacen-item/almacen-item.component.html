@@ -32,14 +32,16 @@
 
     <div class="row justify-content-center">
        <div class="col-5">
-        <li class="list-group-item">{{ almacen.localidad|uppercase}}</li>
-      </div>
-      <div class="col-1">
         <a>
-          <fa-icon [icon]="lupa" class="fa-2x" (click)="consultar()"></fa-icon>
+        <li class="list-group-item" (click)="editar()">{{ almacen.localidad|uppercase}}</li>
         </a>
       </div>
-      <div class="col-1">
+      <!-- <div class="col-1"> -->
+        <!-- <a>
+          <fa-icon [icon]="lupa" class="fa-2x" (click)="editar()"></fa-icon>
+        </a>
+      </div> -->
+      <!-- <div class="col-1">
         <a>
           <fa-icon [icon]="pencil" class="fa-2x" (click)="editar()"></fa-icon>
         </a>
@@ -48,7 +50,7 @@
         <a>
           <fa-icon [icon]="eraser" class="fa-2x" (click)="eliminar()"></fa-icon>
         </a>
-      </div>
+      </div> -->
       <div class="col-1">
       </div>
     </div>

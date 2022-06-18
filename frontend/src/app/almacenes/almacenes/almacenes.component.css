@@ -1,0 +1,30 @@
+
+#general{
+
+  background-color:rgb(15, 131, 102);
+
+  align-items: center;
+
+}
+
+#cadaAlmacen{
+  background-color:rgb(15, 131, 102);
+
+  align-items: center;
+}
+.col-sm-3{
+  text-align: center;
+}
+h2 {
+  margin-top: 10%;
+  margin-bottom: 30px;
+color: yellow;
+  font-size: 36px;
+}
+
+p {
+  font-size: 24px;
+}
+.row{
+  text-align: center;
+}

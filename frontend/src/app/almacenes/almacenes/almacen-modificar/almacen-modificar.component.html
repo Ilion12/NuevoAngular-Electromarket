@@ -2,38 +2,27 @@
   <main>
       <div class="container mt-auto">
 
-          <h2>Almacen-{{almacen.localidad|uppercase}} (editar)</h2>
+          <h2>Almacen-{{almacen.localidad|uppercase}}</h2>
 
           <div class="row justify-content-center">
               <div class="col-8">
-                  <form action="/action_page.php" class="was-validated">
-
-                      <div class="mb-3 mt-3">
-                          <label class="form-label">Localidad:</label>
-                          <input type="text" class="form-control" id="localidadAlmacen" [(ngModel)]="almacen.localidad">
-                      </div>
-                  </form>
               </div>
           </div>
-          <div>
+          <div id="productos">
               <app-productos></app-productos>
           </div>
 
           <div class="row justify-content-center">
-
               <div class="col-2">
-                  <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarAlmacen()"
-                      routerLink="/almacenes">Guardar</button>
+                  <a (click)="onProductoCrear(almacen)"><button id="nuevoProducto" role="button" class="btn btn-success">
+                      Añadir Producto</button></a>
               </div>
 
               <div class="col-2">
                   <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
               </div>
 
-              <div class="col-2">
-                  <a (click)="onProductoCrear(almacen)"><button id="nuevoProducto" role="button" class="btn btn-success">
-                      Añadir Producto</button></a>
-              </div>
+
           </div>
 
       </div>

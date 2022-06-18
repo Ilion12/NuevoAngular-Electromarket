@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faPencilAlt, faCirclePlus, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { Almacen } from 'src/app/almacenes/models/almacen';
 import { AlmacenService } from 'src/app/almacenes/service/almacen.service';
 import { ElectrodomesticoImpl } from '../../models/electrodomestico-impl';
 import { TelevisorImpl } from '../../models/televisor-impl';
+import { ProductoService } from '../../service/producto.service';
 
 @Component({
   selector: 'app-televisor-modificar',
@@ -11,36 +13,30 @@ import { TelevisorImpl } from '../../models/televisor-impl';
   styleUrls: ['./televisor-modificar.component.css']
 })
 export class TelevisorModificarComponent implements OnInit {
+
+  televisor: TelevisorImpl = new TelevisorImpl();
   almacenes: Almacen[] = [];
-  todosAlmacenes: Almacen[] = [];
-  numPaginas: number = 0;
 
-  @Input() televisor!: TelevisorImpl;
-  @Input() producto!: ElectrodomesticoImpl;
-
-
-  constructor(
-    private almacenService: AlmacenService,
-  ) { }
+  constructor(private productoService: ProductoService,
+              private almacenService: AlmacenService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.almacenService.getAlmacenes().subscribe((response) => {
-    this.almacenes = this.almacenService.extraerAlmacenes(response);
-});
-
-this.getTodosAlmacenes();
+    let id: string = this.cargarTelevisor();
+    this.productoService.getTelevisor(id).subscribe(res =>
+      this.televisor = this.productoService.mapearTelevisor(res));
+    this.almacenService.getAlmacenes().subscribe((response) =>
+      this.almacenes = this.almacenService.extraerAlmacenes(response));
   }
 
-  getTodosAlmacenes(): void {
-    this.almacenService.getAlmacenes().subscribe(r => {
-
-            this.todosAlmacenes.push(...this.almacenService.extraerAlmacenes(r));
-          });
+  cargarTelevisor(): string {
+    return this.activatedRoute.snapshot.params['id'];
   }
 
-  // modificarTelevisor(televisor: TelevisorImpl): void {
-  //   this.televisorService.patchTelevisor(televisor.getIdProducto(televisor.urlProducto), televisor).subscribe();
-  // }
+  onEditarTelevisor(): void {
+    this.productoService.updateTelevisor(this.televisor).subscribe();
+  }
 
 
   pencil=faPencilAlt;

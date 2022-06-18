@@ -21,6 +21,7 @@ import { TelevisoresConsultarFormComponent } from './productos-consultar/televis
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BusquedaProdComponent } from './busqueda-prod/busqueda-prod.component';
+import { FormularioBusquedaComponent } from './busqueda-prod/formulario-busqueda/formulario-busqueda.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { BusquedaProdComponent } from './busqueda-prod/busqueda-prod.component';
     LavadorasConsultarFormComponent,
     TelevisoresConsultarComponent,
     TelevisoresConsultarFormComponent,
-    BusquedaProdComponent
+    BusquedaProdComponent,
+    FormularioBusquedaComponent
   ],
   imports: [
     CommonModule,
