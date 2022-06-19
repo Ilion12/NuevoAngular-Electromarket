@@ -1,0 +1,19 @@
+#almacenform{
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+h2{
+  margin-top: 20%;
+  margin-left: 30%;
+  color: yellow;
+}
+
+label{
+  color: yellow;
+}
+main{
+  height: 100%;
+  background-color: (--colorfondo);
+
+}

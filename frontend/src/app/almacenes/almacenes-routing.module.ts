@@ -47,6 +47,8 @@ const routes: Routes = [ {
   path: 'televisores/editar/:id',
   component: TelevisorModificarComponent
 },
+{path:'busqueda-prod',
+component: BusquedaProdComponent}
 
 ];
 

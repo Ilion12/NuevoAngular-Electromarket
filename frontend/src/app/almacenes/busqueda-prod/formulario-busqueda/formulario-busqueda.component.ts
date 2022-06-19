@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TelevisorImpl } from '../../models/televisor-impl';
+import { ProductoService } from '../../service/producto.service';
 
 @Component({
   selector: 'app-formulario-busqueda',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioBusquedaComponent implements OnInit {
 
-  constructor() { }
+  televisor: TelevisorImpl= new TelevisorImpl();
+
+
+  constructor(private productoService: ProductoService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
+
 
 }

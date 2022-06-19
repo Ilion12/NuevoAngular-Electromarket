@@ -1,1 +1,12 @@
-main{margin: 10%;}
+
+main{
+height: 50rem;
+  background-color:rgb(15, 131, 102);
+  align-items: center;
+
+}
+
+.col-sm-3{
+  text-align: center;
+}
+

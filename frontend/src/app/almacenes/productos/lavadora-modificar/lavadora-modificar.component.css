@@ -1,3 +1,14 @@
 section {
-  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  height: auto;
+}
+
+label{
+  color:yellow;
+  width:8cm;
+}
+
+input{
+  color:blue;
 }

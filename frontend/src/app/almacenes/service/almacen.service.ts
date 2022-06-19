@@ -33,7 +33,7 @@ mapearAlmacen(almacenApi: any): AlmacenImpl {
   let almacen: Almacen = new AlmacenImpl();
   almacen.idAlmacen= this.getId(almacenApi._links.almacen.href);
   almacen.localidad= almacenApi.localidad;
-  almacen.urlAlmacen=almacenApi._links.almacen.href;
+  // almacen.urlAlmacen=almacenApi._links.almacen.href;
   return almacen;
 }
 

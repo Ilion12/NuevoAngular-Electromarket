@@ -1,1 +1,36 @@
-<p>formulario-busqueda works!</p>
+<form class="was-validated">
+
+  <div class="mb-3" >
+    <label class="form-label">Marca:</label>
+    <input type="text" class="form-control" placeholder="p.e., LG" name="marca" minlength="3"
+      maxlength="20" [(ngModel)]="televisor.marca" required>
+  </div>
+  <div >
+    <label class="form-label">Modelo:</label>
+    <input type="text" class="form-control" placeholder="p.e., ultraWash" name="modelo" minlength="3"
+      maxlength="20" [(ngModel)]="televisor.modelo" required>
+  </div>
+</form>
+
+<div class="col-2">
+  <button id="buscarAlmacen" type="submit" class="btn btn-primary"
+    >Buscar</button>
+</div>
+<div class="col-2" >
+  <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger" routerLink="/">Cancelar</button></a>
+</div>
+
+
+
+
+
+
+
+<!-- <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingmarcaTelevisor" placeholder="p.e., LG" [(ngModel)]="televisor.marca">
+  <label for="floatingmarcaTelevisor">Introduzca la marca:</label>
+</div>
+<div class="form-floating">
+  <input type="number" class="form-control" id="floatingNumeroPulgadas" placeholder="p.e, 55" [(ngModel)]="televisor.numeroPulgadas">
+  <label for="floatingNumeroPulgadas">Introduzca el número de poulgadas</label>
+</div> -->

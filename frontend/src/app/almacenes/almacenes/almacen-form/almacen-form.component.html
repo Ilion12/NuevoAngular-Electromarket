@@ -1,17 +1,17 @@
 <body class="d-flex flex-column min-vh-100">
   <main>
-    <div class="container mt-auto">
+    <div class="container mt-auto" id="almacenForm">
 
-      <h2>Nuevo Almacen</h2>
+      <h2>NUEVO ALMACÉN</h2>
 
       <div class="row justify-content-center">
         <div class="col-8">
-          <form #almacenForm="ngForm">
+          <form #almacenForm="ngForm" id="almacenform">
             <div class="form-row py-2">
               <div class="col-lg-4 col-md-12" id="etiquetaLocalidad">
-                <label>LOCALIDAD<sup class="text-danger">*</sup></label>
+                <label>LOCALIDAD:<sup class="text-danger">*</sup></label>
                 <input type="text" class="form-control" [(ngModel)]="almacen.localidad" placeholder="Localidad Almacén"
-                  name="alm" required minlength="3" #alm="ngModel" [ngClass]="{
+                  name="alm" required minlength="3" maxlenght="45"  #alm="ngModel" [ngClass]="{
                  'is-invalid': alm.invalid && (alm.dirty || alm.touched),
                   'is-valid': !alm.invalid}" />
                 <div class="text-danger" *ngIf="alm.invalid && (alm.dirty || alm.touched)">
@@ -27,7 +27,8 @@
                   [disabled]="!almacenForm.form.valid">
                   Crear Almacén
                 </button>
-                <button id="botonCancelar" class="btn btn-secondary" role="button" routerLink="/"
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="botonCancelar" class="btn btn-danger" role="button" routerLink="/almacenes"
                   routerLinkActive="router-link-active">
                   Cancelar
                 </button>
@@ -49,5 +50,12 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br><br><br><br><br><br><br><br><br>
   </main>
 </body>

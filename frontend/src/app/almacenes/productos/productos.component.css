@@ -4,3 +4,7 @@ h3{
   color: yellow;
   border-bottom: 1rem;
 }
+
+#lavadoras, #televisores{
+  color: blue;
+}
