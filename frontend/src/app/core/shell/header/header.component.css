@@ -11,7 +11,7 @@ header {
 
 h1 {
   color: rgb(248, 224, 4);
-  font-size: calc(20rem +1vw);
+  font-size: calc(20rem);
   font-weight: bolder;
   font-style:oblique;
   justify-content: center;

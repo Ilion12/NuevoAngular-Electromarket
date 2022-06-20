@@ -1,0 +1,64 @@
+<main>
+  <div class="container mt-3-auto">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>Buscar Televisor</h2>
+    <form class="was-validated">
+
+      <div class="mb-3">
+        <label class="form-label">Marca:</label>
+        <input type="text" class="form-control" placeholder="p.e., LG" name="marca" minlength="3" maxlength="20"
+          [(ngModel)]="marca" required>
+      </div>
+      <div>
+        <label class="form-label">Tamaño de la Pantalla:</label>
+        <input type="number" class="form-control" placeholder="p.e., ultraWash" name="modelo" minlength="3" min="17"
+          [(ngModel)]="numeroPulgadas" required>
+      </div>
+    </form>
+    <div class="row" id="botones">
+      <div class="col-2">
+        <button id="buscarAlmacen" type="submit" class="btn btn-primary"
+          (click)="almacenesBuscados(marca,numeroPulgadas)">Buscar</button>
+      </div>
+      <div class="col-2">
+        <button id="cancelar" type="button" class="btn btn-danger" routerLink="/">Cancelar</button>
+      </div>
+    </div>
+    <div class="container-fluid almacenes-buscados">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <h1>RESULTADO</h1>
+          <div class="col-sm-12">
+            <div *ngfor="let almacen of almacenes">
+              <app-almacenes-buscados [almacen]="almacen" ></app-almacenes-buscados>
+            </div>
+          </div>
+          <a class="btn btn-primary contenido volver" routerLink="/almacenes" >Volver</a>
+
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+
+
+</main>

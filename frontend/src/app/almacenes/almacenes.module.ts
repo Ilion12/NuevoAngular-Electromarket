@@ -20,8 +20,8 @@ import { TelevisoresConsultarComponent } from './productos-consultar/televisores
 import { TelevisoresConsultarFormComponent } from './productos-consultar/televisores-consultar-form/televisores-consultar-form.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BusquedaProdComponent } from './busqueda-prod/busqueda-prod.component';
-import { FormularioBusquedaComponent } from './busqueda-prod/formulario-busqueda/formulario-busqueda.component';
+import { FormularioBusquedaComponent } from './almacenes/formulario-busqueda/formulario-busqueda.component';
+import { AlmacenesBuscadosComponent } from './almacenes/almacenes-buscados/almacenes-buscados.component';
 
 
 @NgModule({
@@ -42,14 +42,15 @@ import { FormularioBusquedaComponent } from './busqueda-prod/formulario-busqueda
     LavadorasConsultarFormComponent,
     TelevisoresConsultarComponent,
     TelevisoresConsultarFormComponent,
-    BusquedaProdComponent,
-    FormularioBusquedaComponent
+    FormularioBusquedaComponent,
+    AlmacenesBuscadosComponent,
   ],
   imports: [
     CommonModule,
     AlmacenesRoutingModule, FormsModule,
     FontAwesomeModule
   ],
-  providers:[]
+  providers:[],
+  exports:[]
 })
 export class AlmacenesModule { }

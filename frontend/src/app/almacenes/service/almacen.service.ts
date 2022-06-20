@@ -12,6 +12,7 @@ export class AlmacenService {
 
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}almacenes`;
+  private urlEndPointTel: string = `${this.host}televisores`;
 
 
 constructor(
@@ -103,5 +104,25 @@ getAlmacen(id:string): Observable<any>{
   );
 }
 
+getAlmacenesBuscados(marca:string, numeroPulgadas:number): Observable<any>{
+  return this.http.get<any>(`${this.host}televisores/search/buscar-productos?marca=${marca}&numeroPulgadas=${numeroPulgadas}`).pipe(
+    catchError((e) => {
+      if (e.status === 400) {
+        return throwError(() => new Error(e));
+      }
+      if (e.error.mensaje) {
+        console.error(e.error.mensaje);
+      }
+      return throwError(() => new Error(e));
+    })
+  );
+}
+extraerAlmacenesMetodo(respuestaApi: any): Almacen[] {
+  const almacenes: Almacen[] = [];
+  respuestaApi._embedded.almacenes.forEach((a: any) => {
+  almacenes.push(this.mapearAlmacen(a));
+  });
+  return almacenes;
+}
 
 }

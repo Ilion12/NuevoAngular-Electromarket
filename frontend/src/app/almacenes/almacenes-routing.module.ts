@@ -4,7 +4,7 @@ import { AlmacenConsultarComponent } from './almacenes/almacen-consultar/almacen
 import { AlmacenFormComponent } from './almacenes/almacen-form/almacen-form.component';
 import { AlmacenModificarComponent } from './almacenes/almacen-modificar/almacen-modificar.component';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
-import { BusquedaProdComponent } from './busqueda-prod/busqueda-prod.component';
+import { FormularioBusquedaComponent } from './almacenes/formulario-busqueda/formulario-busqueda.component';
 import { LavadorasConsultarFormComponent } from './productos-consultar/lavadoras-consultar-form/lavadoras-consultar-form.component';
 import { TelevisoresConsultarFormComponent } from './productos-consultar/televisores-consultar-form/televisores-consultar-form.component';
 import { LavadoraModificarComponent } from './productos/lavadora-modificar/lavadora-modificar.component';
@@ -47,9 +47,10 @@ const routes: Routes = [ {
   path: 'televisores/editar/:id',
   component: TelevisorModificarComponent
 },
-{path:'busqueda-prod',
-component: BusquedaProdComponent}
-
+{
+  path: 'formulario-busqueda',
+  component: FormularioBusquedaComponent
+}
 ];
 
 @NgModule({
