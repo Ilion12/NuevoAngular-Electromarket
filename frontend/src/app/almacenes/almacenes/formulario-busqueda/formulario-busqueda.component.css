@@ -17,3 +17,13 @@ form {
   padding-left: 35%;
   padding-bottom: 3%;
 }
+
+h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: yellow;
+padding-left: 20%;
+}
+
+#volverButton{
+  align-items: center;
+}

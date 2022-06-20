@@ -1,10 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Almacen } from '../../models/almacen';
 import { AlmacenImpl } from '../../models/almacen-impl';
-import { Electrodomestico } from '../../models/electrodomestico';
-import { ElectrodomesticoImpl } from '../../models/electrodomestico-impl';
-import { Televisor } from '../../models/televisor';
-import { TelevisorImpl } from '../../models/televisor-impl';
 import { AlmacenService } from '../../service/almacen.service';
 
 @Component({

@@ -36,12 +36,12 @@
         <div class="col-3"></div>
         <div class="col-6">
           <h1>RESULTADO</h1>
+
           <div class="col-sm-12">
-            <div *ngfor="let almacen of almacenes">
+            <div *ngFor="let almacen of almacenes">
               <app-almacenes-buscados [almacen]="almacen" ></app-almacenes-buscados>
             </div>
           </div>
-          <a class="btn btn-primary contenido volver" routerLink="/almacenes" >Volver</a>
 
         </div>
         <div class="col-3"></div>
