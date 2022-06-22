@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { faPencil, faEye, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment';
@@ -25,23 +24,18 @@ export class ProductosFormComponent implements OnInit {
   televisor: TelevisorImpl = new TelevisorImpl();
   almacenes:Almacen[]=[];
   formulario:number = 0;
-  productoForm!: FormGroup;
 
   private host:string = environment.host;
   private urlEndpoint:string = `${this.host}almacenes`
 
 
   constructor(
+      private almacenService: AlmacenService,
       private productoService: ProductoService,
       private router: Router,
-      private activatedRoute: ActivatedRoute,
-      private formBuilder: FormBuilder) { this.datos=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-      this.datos1=[4, 6, 7, 8, 9, 10, 11, 12, 14, 16];
-    this.datos2=[17,19,21,23,29,32,43,49,55,65,75,80,90,100];
-    this.productoForm=this.formBuilder.group({
-
-    })
-  }
+      private activatedRoute: ActivatedRoute) { this.datos=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+      this.datos1=[4, 6, 7, 8, 9, 10, 11, 12, 14, 16]
+    this.datos2=[17,19,21,23,29,32,43,49,55,65,75,80,90,100]}
 
   ngOnInit(): void {
     let id: string = this.cargarAlmacen();

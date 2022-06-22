@@ -10,6 +10,7 @@
               <label id="tipoproducto" class="form-label">Tipo de Producto:</label>
               <select [(ngModel)]="formulario" [ngModelOptions]="{standalone: true}" class="form-select"
                 aria-label="Default select example" required>
+                <option disabled selected></option>
                 <option value="1">Lavadora</option>
                 <option value="2">Televisor</option>
               </select>
@@ -19,11 +20,11 @@
             <div class="mb-3" *ngIf="formulario == 1">
               <label class="form-label">Marca:</label>
               <input type="text" class="form-control" placeholder="p.e., LG" name="marca" minlength="3" maxlength="20"
-                [(ngModel)]="lavadora.marca" required>
+                [(ngModel)]="lavadora.marca" aria-label="Default select example" required>
             </div>
             <div class="mb-3" *ngIf="formulario == 1">
               <label class="form-label">Modelo:</label>
-              <input type="text" class="form-control" placeholder="p.e., ultraWash" name="modelo" minlength="3"
+              <input type="text" aria-label="Default select example" class="form-control" placeholder="p.e., ultraWash" name="modelo" minlength="3"
                 maxlength="20" [(ngModel)]="lavadora.modelo" required>
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 1">
@@ -31,7 +32,8 @@
                 class="form-label">Calif.Energ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <select [(ngModel)]="lavadora.calificacionEnergetica" (change)="capturar()"
-                [ngModelOptions]="{standalone: true}" required>
+                [ngModelOptions]="{standalone: true}" aria-label="Default select example" required>
+                <option disabled selected></option>
                 <option *ngFor="let dato of datos">
                   {{dato}}
                 </option>
@@ -39,9 +41,9 @@
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 1">
               <label class="form-label">Capacidad de Carga:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <select [(ngModel)]="lavadora.capacidadCarga" (change)="capturar()" [ngModelOptions]="{standalone: true}"
+              <select aria-label="Default select example" [(ngModel)]="lavadora.capacidadCarga" (change)="capturar()" [ngModelOptions]="{standalone: true}"
                 required>
-
+                <option disabled selected></option>
                 <option *ngFor="let dato1 of datos1">
                   {{dato1}}
                 </option>
@@ -55,18 +57,17 @@
             'is-valid': ! prod21.invalid
           }" /><span class="input-group-text">€</span>
             <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
-              <div *ngIf="prod21.errors?.['min']"> El precio no puede ser negativo</div>
+              <div *ngIf="prod21.errors?.['min']"> El precio debe ser mayor de 0</div>
             </div>
-            <div class="valid-feedback">Ok</div>
-          </div>
+            </div>
             <div class="mb-3" *ngIf="formulario == 2">
               <label class="form-label">Marca:</label>
-              <input type="text" class="form-control" placeholder="p.e., LG" name="marcaTelevisor" minlength="3"
+              <input type="text" aria-label="Default select example" class="form-control" placeholder="p.e., LG" name="marcaTelevisor" minlength="3"
                 maxlength="20" [(ngModel)]="televisor.marca" required>
             </div>
             <div class="mb-3" *ngIf="formulario == 2">
               <label class="form-label">Modelo:</label>
-              <input type="text" class="form-control" placeholder="p.e., vision2000" name="modeloTelevisor"
+              <input type="text" aria-label="Default select example" class="form-control" placeholder="p.e., vision2000" name="modeloTelevisor"
                 minlength="1" maxlength="30" [(ngModel)]="televisor.modelo" required>
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 2">
@@ -74,7 +75,7 @@
                 class="form-label">Calif.Energ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <select class="form-control"[(ngModel)]="televisor.calificacionEnergetica" (change)="capturar()"
-                [ngModelOptions]="{standalone: true}" aria-label="Default select example" required>
+                [ngModelOptions]="{standalone: true}" aria-label="Default select required" required>
                 <option disabled selected></option>
                 <option *ngFor="let dato of datos">
                   {{dato}}
@@ -83,7 +84,7 @@
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 2">
               <label class="form-label">Tamaño de la Pantalla:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <select class="form-control" [(ngModel)]="televisor.numeroPulgadas" (change)="capturar()" [ngModelOptions]="{standalone: true}"
+              <select class="form-control" aria-label="Default select example" [(ngModel)]="televisor.numeroPulgadas" (change)="capturar()" [ngModelOptions]="{standalone: true}"
                 required>
                 <option disabled selected></option>
                 <option *ngFor="let dato2 of datos2">
@@ -94,7 +95,7 @@
             <div class="mb-3 input-group" *ngIf="formulario == 2">
               <label class="form-label">Precio:&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <input type="number" class="form-control" [(ngModel)]="televisor.precio" placeholder="" name="precio"
-                required min="1" max="99999" #prod21="ngModel" [ngClass]="{
+                required min="0" max="99999" #prod21="ngModel" [ngClass]="{
             'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
             'is-valid': ! prod21.invalid
           }" /><span class="input-group-text">€</span>
