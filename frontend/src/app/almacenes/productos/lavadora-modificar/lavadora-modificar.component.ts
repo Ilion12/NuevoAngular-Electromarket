@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faCirclePlus, faPencilAlt, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { Almacen } from 'src/app/almacenes/models/almacen';
@@ -22,7 +22,7 @@ export class LavadoraModificarComponent implements OnInit {
   constructor(
     private almacenService: AlmacenService,
     private productoService: ProductoService,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +33,9 @@ export class LavadoraModificarComponent implements OnInit {
       this.almacenes=this.almacenService.extraerAlmacenes(r));
   }
 
+  ngAfterContentChecked() : void {
+    this.cdr.detectChanges();
+}
   cargarLavadora(): string {
     return this.activatedRoute.snapshot.params['id'];
   }

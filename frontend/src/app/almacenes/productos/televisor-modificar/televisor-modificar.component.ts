@@ -6,21 +6,28 @@ import { AlmacenService } from 'src/app/almacenes/service/almacen.service';
 import { ElectrodomesticoImpl } from '../../models/electrodomestico-impl';
 import { TelevisorImpl } from '../../models/televisor-impl';
 import { ProductoService } from '../../service/producto.service';
+import { ChangeDetectorRef,AfterContentChecked} from '@angular/core'
 
 @Component({
   selector: 'app-televisor-modificar',
   templateUrl: './televisor-modificar.component.html',
   styleUrls: ['./televisor-modificar.component.css']
 })
-export class TelevisorModificarComponent implements OnInit {
+export class TelevisorModificarComponent implements OnInit, AfterContentChecked{
 
+  datos1;
+  datos;
+  opcionSeleccionada: string = '0'
+  verSeleccion: string = '';
   televisor: TelevisorImpl = new TelevisorImpl();
   almacenes: Almacen[] = [];
 
   constructor(private productoService: ProductoService,
               private almacenService: AlmacenService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private cdr: ChangeDetectorRef) {this.datos=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+             this.datos1=[17, 22, 29, 32, 43, 49, 55, 65, 75, 80, 100] }
 
   ngOnInit(): void {
     let id: string = this.cargarTelevisor();
@@ -30,6 +37,9 @@ export class TelevisorModificarComponent implements OnInit {
       this.almacenes = this.almacenService.extraerAlmacenes(response));
   }
 
+  ngAfterContentChecked() : void {
+    this.cdr.detectChanges();
+}
   cargarTelevisor(): string {
     return this.activatedRoute.snapshot.params['id'];
   }
@@ -38,9 +48,10 @@ export class TelevisorModificarComponent implements OnInit {
     this.productoService.updateTelevisor(this.televisor).subscribe();
   }
 
+  capturar() {
+        // Pasamos el valor seleccionado a la variable verSeleccion
+        this.verSeleccion = this.opcionSeleccionada;
+    }
 
-  pencil=faPencilAlt;
-  plus=faCirclePlus;
-  cambio=faPenNib;
 
 }
