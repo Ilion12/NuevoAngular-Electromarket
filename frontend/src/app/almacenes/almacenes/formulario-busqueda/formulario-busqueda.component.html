@@ -37,12 +37,17 @@
         <div class="col-6">
           <h1>RESULTADO</h1>
 
-          <div class="col-sm-12">
+          <div class="col-sm-12" *ngIf="almacenes.length >0 ; else elseAlmacenes">
             <div *ngFor="let almacen of almacenes">
               <app-almacenes-buscados [almacen]="almacen" ></app-almacenes-buscados>
             </div>
           </div>
-
+          <a class="btn btn-primary contenido volver" routerLink="/">Volver</a>
+          <ng-template #elseAlmacenes>
+            <h4 class="card-title">
+              <b>NO HAY TELEVISORES DE ESAS CARACTERÍSTICAS</b>
+            </h4>
+          </ng-template>
         </div>
         <div class="col-3"></div>
       </div>

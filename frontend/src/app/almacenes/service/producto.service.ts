@@ -53,9 +53,13 @@ export class ProductoService {
 
   extraerLavadoras(respuestaApi: any): LavadoraImpl[]{
     const lavadoras: (LavadoraImpl[]) = [];
-    respuestaApi._embedded.lavadoras.forEach((p: any) => {
+    let respuesta: any = respuestaApi._embedded.lavadoras;
+    if(respuesta === undefined) {
+      console.info('No hay lavadoras en este almacen');
+    }
+    else {respuestaApi._embedded.lavadoras.forEach((p: any) => {
       lavadoras.push(this.mapearLavadora(p));
-    });
+    });}
     return lavadoras;
   }
 
@@ -125,9 +129,7 @@ export class ProductoService {
 
     let televisorNuevo = new TelevisorImpl();
 
-    // televisorNuevo.almacen=televisorApi._links.almacen.href;
     televisorNuevo.calificacionEnergetica= televisorApi.calificacionEnergetica;
-    // televisorNuevo.urlProducto=televisorApi._links.self.href;
     televisorNuevo.marca= televisorApi.marca;
     televisorNuevo.modelo= televisorApi.modelo;
     televisorNuevo.precio= televisorApi.precio;
@@ -139,9 +141,14 @@ export class ProductoService {
 
   extraerTelevisores(respuestaApi: any): TelevisorImpl[] {
     const televisores: TelevisorImpl[] = [];
+    let respuesta: any= respuestaApi._embedded.televisores;
+    if(respuesta===undefined){
+      console.info('No existen televisores en este almacén');
+    }
+    else{
     respuestaApi._embedded.televisores.forEach((p: any) => {
       televisores.push(this.mapearTelevisor(p));
-    });
+    });}
     return televisores;
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faHomeLgAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -12,4 +13,5 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  inicio= faHomeLgAlt;
 }

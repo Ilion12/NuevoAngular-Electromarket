@@ -18,7 +18,7 @@ import { LavadorasConsultarComponent } from './productos-consultar/lavadoras-con
 import { LavadorasConsultarFormComponent } from './productos-consultar/lavadoras-consultar-form/lavadoras-consultar-form.component';
 import { TelevisoresConsultarComponent } from './productos-consultar/televisores-consultar/televisores-consultar.component';
 import { TelevisoresConsultarFormComponent } from './productos-consultar/televisores-consultar-form/televisores-consultar-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormularioBusquedaComponent } from './almacenes/formulario-busqueda/formulario-busqueda.component';
 import { AlmacenesBuscadosComponent } from './almacenes/almacenes-buscados/almacenes-buscados.component';
@@ -47,7 +47,7 @@ import { AlmacenesBuscadosComponent } from './almacenes/almacenes-buscados/almac
   ],
   imports: [
     CommonModule,
-    AlmacenesRoutingModule, FormsModule,
+    AlmacenesRoutingModule, FormsModule, ReactiveFormsModule,
     FontAwesomeModule
   ],
   providers:[],

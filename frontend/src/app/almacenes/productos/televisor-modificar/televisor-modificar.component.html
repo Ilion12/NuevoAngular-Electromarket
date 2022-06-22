@@ -6,7 +6,7 @@
   <div class="form-row py-2">
     <label>Marca<sup class="text-danger">*</sup></label>
     <input type="text" class="form-control" [(ngModel)]="televisor.marca" placeholder="Por ejemplo, LG"
-     name="prod"
+    name="prod"
     required  maxlength="15"/>
     <div class="invalid-feedback">Por favor, rellene este campo.</div>
     <div class="valid-feedback">Ok</div>
@@ -14,8 +14,8 @@
   <div class="form-row py-2">
     <label>Modelo<sup class="text-danger">*</sup></label>
     <input type="text" class="form-control" [(ngModel)]="televisor.modelo"
-     placeholder="P. e., SartmWash" name="prod2"
-      required minlength="9" maxlength="9" #prod2="ngModel" [ngClass]="{
+    placeholder="P. e., SartmWash" name="prod2"
+      required #prod2="ngModel" [ngClass]="{
         'is-invalid': prod2.invalid && (prod2.dirty || prod2.touched),
         'is-valid': !prod2.invalid
       }" />
@@ -24,33 +24,40 @@
   </div>
     <div class="form-row py-2">
     <label>Calificación Energética<sup class="text-danger">*</sup></label>
-    <input type="text" class="form-control" placeholder="" name="califciacionenergetica" minlength="1" maxlength="1"
-          [(ngModel)]="televisor.calificacionEnergetica" required>
+    <select [(ngModel)]="televisor.calificacionEnergetica" (change)="capturar()"  [ngModelOptions]="{standalone: true}">
+      <option value="0">Selecciona una opción</option>
+      <option *ngFor="let dato of datos">
+        {{dato}}
+      </option>
+  </select>
   </div>
   <div class="form-row py-2">
     <label>Tamaño de la Pantalla<sup class="text-danger">*</sup></label>
-    <input type="number" class="form-control" [(ngModel)]="televisor.numeroPulgadas" placeholder='P.e., 49" ' name="prod21"
-      required min="1" max="1" #prod21="ngModel" [ngClass]="{
-        'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
-        'is-valid': ! prod21.invalid
-      }" />
+    <select [(ngModel)]="televisor.numeroPulgadas" (change)="capturar()"  [ngModelOptions]="{standalone: true}" required>
+      <option value="0">Selecciona una opción</option>
+      <option *ngFor="let dato1 of datos1">
+        {{dato1}}"
+      </option>
+  </select>
     <div class="invalid-feedback">Por favor, rellene este campo.</div>
     <div class="valid-feedback">Ok</div>
   </div>
   <div class="form-row py-2">
     <label>Precio<sup class="text-danger">*</sup></label>
     <input type="number" class="form-control" [(ngModel)]="televisor.precio" placeholder="" name="precio" required
-      min="1" max="" #prod21="ngModel" [ngClass]="{
+      min="1" max="99999" #prod21="ngModel" [ngClass]="{
     'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
     'is-valid': ! prod21.invalid
-  }" />
-    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+  }" /><span class="input-group-text">€</span>
+    <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
+      <div *ngIf="prod21.errors?.['min']"> El precio no puede ser negativo</div>
+    </div>
     <div class="valid-feedback">Ok</div>
   </div>
   <div class="row justify-content-center">
 
     <div class="col-2">
-      <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarTelevisor()"
+      <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarTelevisor()" [disabled]="true"
         routerLink="/almacenes">Guardar</button>
     </div>
 

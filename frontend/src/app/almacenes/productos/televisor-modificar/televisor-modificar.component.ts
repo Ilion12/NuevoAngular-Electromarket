@@ -14,13 +14,19 @@ import { ProductoService } from '../../service/producto.service';
 })
 export class TelevisorModificarComponent implements OnInit {
 
+  datos1;
+  datos;
+  opcionSeleccionada: string = '0'
+  verSeleccion: string = '';
+
   televisor: TelevisorImpl = new TelevisorImpl();
   almacenes: Almacen[] = [];
 
   constructor(private productoService: ProductoService,
               private almacenService: AlmacenService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {this.datos=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            this.datos1=[17, 22, 29, 32, 43, 49, 55, 65, 75, 80, 100]  }
 
   ngOnInit(): void {
     let id: string = this.cargarTelevisor();
@@ -37,6 +43,11 @@ export class TelevisorModificarComponent implements OnInit {
   onEditarTelevisor(): void {
     this.productoService.updateTelevisor(this.televisor).subscribe();
   }
+
+  capturar() {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.verSeleccion = this.opcionSeleccionada;
+}
 
 
   pencil=faPencilAlt;

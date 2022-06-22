@@ -13,7 +13,9 @@ import { ProductoService } from '../../service/producto.service';
 })
 export class LavadoraModificarComponent implements OnInit {
 
-
+  datos;
+  opcionSeleccionada: string = '0'
+  verSeleccion: string = '';
 
   lavadora: LavadoraImpl= new LavadoraImpl();
   almacenes: Almacen[]=[];
@@ -23,7 +25,7 @@ export class LavadoraModificarComponent implements OnInit {
     private almacenService: AlmacenService,
     private productoService: ProductoService,
     private activatedRoute: ActivatedRoute,
-  ) { }
+  ) {this.datos=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']; }
 
   ngOnInit(): void {
     let id: string = this.cargarLavadora();
@@ -41,6 +43,10 @@ export class LavadoraModificarComponent implements OnInit {
     this.productoService.updateLavadora(this.lavadora).subscribe();
   }
 
+  capturar() {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.verSeleccion = this.opcionSeleccionada;
+}
 
   pencil=faPencilAlt;
   plus=faCirclePlus;
