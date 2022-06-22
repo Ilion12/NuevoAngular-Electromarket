@@ -15,7 +15,11 @@ import { ProductoService } from '../../service/producto.service';
 })
 export class ProductosFormComponent implements OnInit {
 
-
+  datos;
+  datos1;
+  datos2;
+  opcionSeleccionada: string = '0'
+  verSeleccion: string = '';
   lavadora: LavadoraImpl = new LavadoraImpl();
   televisor: TelevisorImpl = new TelevisorImpl();
   almacenes:Almacen[]=[];
@@ -29,7 +33,9 @@ export class ProductosFormComponent implements OnInit {
       private almacenService: AlmacenService,
       private productoService: ProductoService,
       private router: Router,
-      private activatedRoute: ActivatedRoute) { }
+      private activatedRoute: ActivatedRoute) {this.datos=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+      this.datos1=[4, 6, 7, 8, 9, 10, 11, 12, 14, 16];
+      this.datos2=[17,19,21,23,29,32,43,49,55,65,75,80,90,100]; }
 
   ngOnInit(): void {
     let id: string = this.cargarAlmacen();
@@ -53,6 +59,10 @@ export class ProductosFormComponent implements OnInit {
     this.router.navigate([`/almacenes/editar/${id}`]);
   }
 
+  capturar() {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.verSeleccion = this.opcionSeleccionada;
+  }
   pencil=faPencil;
   eye=faEye;
   trash=faTrashCan;
